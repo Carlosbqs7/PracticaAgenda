@@ -63,7 +63,7 @@
 			$mail = $_POST['mail'];
 			unset($compruebaMail);
 			$compruebaMail = $db->getOne("SELECT mail FROM usuarios WHERE mail = ?s",$mail);
-			if ($compruebaMail == $mail) {
+			if ($compruebaMail === $mail) {
 				$passw = hash('sha256', $_POST['cont']);
 				$compruebaPassw = $db->getOne("SELECT contraseña FROM usuarios WHERE mail = ?s",$mail);
 				if ($passw == $compruebaPassw) {
